@@ -1,0 +1,164 @@
+*, html, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1em 2em;
+  background-color: #282a36;
+  color: #f8f8f2;
+  padding-bottom: 4em;
+}
+
+h1 {
+  flex: 1 1 100%;
+  white-space: nowrap;
+}
+
+h1::before, h1::after {
+  content: '🦇';
+  margin: 0 1em;
+}
+
+table {
+  border: 1px solid #6272a4;
+  border-collapse: collapse;
+  text-align: left;
+  flex: 1 1 100%;
+}
+
+thead {
+  font-weight: 600;
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+  background-color: #6272a4;
+}
+
+td {
+  padding: 0.8em 0.5em;
+  min-width: 15%;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: #44475a;
+}
+
+body:not(.editor) tbody tr {
+  transition: 100ms ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+body:not(.editor) tbody tr:hover, tbody tr:focus {
+  background-color: #ffb86c;
+  color: black;
+}
+
+.current-day {
+  box-shadow: inset 0px 0px 2px 1px #ff5555;
+}
+
+.current-day td:first-of-type::after {
+  content: ' 👻';
+}
+
+tbody tr:last-of-type > td:first-of-type::after {
+  content: ' 🎃';
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  padding: 1em;
+  color: #f8f8f2;
+  background-color: hsl(231, 15%, 0%);
+  border: 1px solid hsl(231, 15%, 0%);
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 2px hsla(231, 15%, 18%, 0.8);
+  z-index: 1;
+  transition: 50ms ease-in-out;
+}
+
+.tooltip a {
+  color: inherit;
+}
+
+.tooltip::after {
+  color: hsl(231, 15%, 0%);
+  display: block;
+  position: absolute;
+  transform: translatex(-50%);
+  left: 50%;
+  text-shadow: 0px 0px 6px hsl(231, 15%, 18%);
+}
+
+tr:nth-child(-n+2) .tooltip {
+  right: 10%;
+  top: 110%;
+}
+
+tr:nth-child(-n+2) .tooltip::after {
+  content: ' ▲';
+  top: -0.9em;
+}
+
+tr:nth-child(n+3) .tooltip {
+  right: 10%;
+  bottom: 110%;
+}
+
+tr:nth-child(n+3) .tooltip::after {
+  content: ' ▼';
+  bottom: -1em;
+}
+
+tbody tr:focus .tooltip, tbody tr:focus-within .tooltip, tbody tr:active .tooltip, .tooltip:focus, .tooltip:focus-within, .tooltip:has(a:focus,a:active) {
+  visibility: visible;
+  transition: 100ms ease-in-out;
+}
+
+.editor tbody td:focus {
+  background: #fff;
+  color: #000;
+}
+
+.editor tbody tr:has(td:focus) {
+  background: #ffb86c;
+  color: #000;
+}
+
+.editor .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f1fa8c;
+  color: #282a36;
+  padding: 1.2em;
+  box-shadow: 0px 0px 2px 2px #000;
+}
+
+.editor form {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    padding: 0.5em;
+  }
+  h1::before, h1::after {
+    margin: 0 0.2em;
+  }
+  
+  h1 {
+    font-size: clamp(1.35em, -1em + 8vw, 3em);
+  }
+
+  tbody tr:hover .tooltip {
+    visibility: visible;
+    transition: 100ms ease-in-out;
+  }
+}
