@@ -1,4 +1,4 @@
-# Horror Movie Advent
+# 👻 Horror Movie Advent 🎃
 This is a small set of PHP pages to display and allow easy editing of a Horror movie advent calendar.
 
 Theme is based on [Dracula Theme](https://draculatheme.com).
