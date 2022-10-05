@@ -1,9 +1,8 @@
 # Horror Movie Advent
----
 This is a small set of PHP pages to display and allow easy editing of a Horror movie advent calendar.
 
-### How to use
 ---
+### How to use
 Basic common sense is required. I don't really want to write out each detail on how to use such a simple set of pages.
 Upload files to any directory you'd like on a PHP compatible server.
 Copy `options.sample.php` to `options.php` and set the password constant.
