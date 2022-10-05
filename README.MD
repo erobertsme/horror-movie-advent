@@ -12,6 +12,7 @@ Copy `options.sample.php` to `options.php` and set the password constant.
 To view the list users will navigate to the base directory the files were uploaded to.
 
 To edit the list users will navigate to `/edit.php` of the base directory the files were uploaded to, and must use the password defined in the constant in `options.php`.
+
 ---
 #### TODO
 - Change tooltip to accordion style details panel that opens below selection to allow more information and add details like movie description, rating, image, language, et al
