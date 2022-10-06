@@ -1,5 +1,6 @@
 <?php
 require_once 'options.php';
+
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
   $password = $_POST['password'];
   if ($password !== PASSWORD) return header("Location: ?status=failed");
